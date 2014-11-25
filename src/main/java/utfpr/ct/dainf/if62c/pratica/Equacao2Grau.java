@@ -11,12 +11,13 @@ package utfpr.ct.dainf.if62c.pratica;
  * @param <N>
  */
 public class Equacao2Grau<N extends Number> {
-    N a;
-    N b;
-    N c;
+    private N a;
+    private N b;
+    private N c;
 
-    public Equacao2Grau (N a, N b, N c) throws RuntimeException {
-        if(a.intValue() == 0) throw new RuntimeException("Coeficiente nao pode ser zero.");
+    public Equacao2Grau (N a, N b, N c){
+        if(a.intValue() == 0) 
+            throw new CoeficienteException(a);
         this.a = a;
         this.b = b;
         this.c = c;

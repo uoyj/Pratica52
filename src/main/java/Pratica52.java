@@ -1,4 +1,5 @@
 
+import utfpr.ct.dainf.if62c.pratica.CoeficienteException;
 import utfpr.ct.dainf.if62c.pratica.Equacao2Grau;
 
 /**
@@ -11,14 +12,20 @@ import utfpr.ct.dainf.if62c.pratica.Equacao2Grau;
  */
 public class Pratica52 {
     public static void main(String[] args) {
-        Equacao2Grau<Integer> e1 = new Equacao2Grau<>(7,8,1);
-        Equacao2Grau<Integer> e2 = new Equacao2Grau<>(1,2,1);
-        Equacao2Grau<Integer> e3 = new Equacao2Grau<>(0,1,1);
-        System.out.println(e1.getRaiz1());
-        System.out.println(e1.getRaiz2());
-        System.out.println(e2.getRaiz1());
-        System.out.println(e2.getRaiz2());
-        //System.out.println(e3.getRaiz1());
-        //System.out.println(e3.getRaiz2());
+        try{
+            Equacao2Grau<Integer> e1 = new Equacao2Grau<>(7,8,1);
+            Equacao2Grau<Integer> e2 = new Equacao2Grau<>(1,2,1);
+            Equacao2Grau<Integer> e3 = new Equacao2Grau<>(1,1,1);
+            System.out.println(e1.getRaiz1());
+            System.out.println(e1.getRaiz2());
+            System.out.println(e2.getRaiz1());
+            System.out.println(e2.getRaiz2());
+            System.out.println(e3.getRaiz1());
+            System.out.println(e3.getRaiz2());
+        }catch(RuntimeException e)
+        {
+            System.out.println("Atenção: "+e.getLocalizedMessage());
+        }
+        
     }
 }
