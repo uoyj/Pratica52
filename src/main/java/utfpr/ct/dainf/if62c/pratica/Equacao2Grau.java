@@ -15,9 +15,8 @@ public class Equacao2Grau<N extends Number> {
     private N b;
     private N c;
 
-    public Equacao2Grau (N a, N b, N c){
-        if(a.intValue() == 0) 
-            throw new CoeficienteException(a);
+    public Equacao2Grau (N a, N b, N c) throws RuntimeException{
+        if(a.intValue() == 0) throw new RuntimeException("Coeficiente nao pode ser zero.");
         this.a = a;
         this.b = b;
         this.c = c;
@@ -29,7 +28,7 @@ public class Equacao2Grau<N extends Number> {
 
     public void setA(N a) throws RuntimeException {
         if(a.intValue() == 0) throw new RuntimeException("Coeficiente nao pode ser zero.");
-        else this.a = a;
+        this.a = a;
     }
 
     public N getB() {
@@ -53,7 +52,7 @@ public class Equacao2Grau<N extends Number> {
         double raiz1 = b.doubleValue()*b.doubleValue() - 4*a.doubleValue()*c.doubleValue();
         if( raiz1 < 0) throw new RuntimeException("Sem solução real");
         
-        else raiz1 = Math.sqrt(raiz1);
+        raiz1 = Math.sqrt(raiz1);
         raiz1 = -1.0*b.doubleValue() + raiz1;
         raiz1 = raiz1/(2*a.doubleValue());
         return raiz1;
@@ -64,7 +63,7 @@ public class Equacao2Grau<N extends Number> {
         double raiz2 = b.doubleValue()*b.doubleValue() - 4*a.doubleValue()*c.doubleValue();
         if( raiz2 < 0) throw new RuntimeException("Sem solução real");
         
-        else raiz2 = Math.sqrt(raiz2);
+        raiz2 = Math.sqrt(raiz2);
         raiz2 = -1.0*b.doubleValue() - raiz2;
         raiz2 = raiz2/(2*a.doubleValue());
         return raiz2;
